@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
+    stage('Build') {
       steps {
-        svn(url: 'http://srvfr01-0020/repos/IntegrationContinue', changelog: true, poll: true)
+        bat 'http://srvfr01-0066.france.contentia.org:5555/invoke/com.sag.wx.dep.pub/buildProjectAutomatorAssets?environment=${BUILD_ENVIRONMENT}&password=manage&source=D%3A%5CCI%5Ccandidate%5C${BUILD_SOURCE}&targetPwd=${TARGETPWD}'
       }
     }
   }
